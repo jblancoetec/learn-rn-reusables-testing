@@ -3,6 +3,7 @@ import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
 import { TituloParaElNombreDeLaCiudad } from '@/src/clima/ciudad';
 import NavEntreDias from '@/src/clima/nav_entre_dias';
+import { SimboloParaCadaTipoDeClima } from '@/src/clima/simbolo';
 import { Link } from 'expo-router';
 import { StarIcon } from 'lucide-react-native';
 import { useColorScheme } from 'nativewind';
@@ -26,7 +27,7 @@ export default function Screen() {
       <NavEntreDias />
       <View className="flex-1 items-center justify-center gap-8 p-4">
         <TituloParaElNombreDeLaCiudad ciudad="Tokio" />
-        <Image source={LOGO[colorScheme ?? 'light']} style={IMAGE_STYLE} resizeMode="contain" />
+        <SimboloParaCadaTipoDeClima clima="lluvioso" />
         <View className="gap-2 p-4">
           <Text className="ios:text-foreground font-mono text-sm text-muted-foreground">
             1. Edit <Text variant="code">app/index.tsx</Text> to get started.
