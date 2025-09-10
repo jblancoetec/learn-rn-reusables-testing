@@ -1,5 +1,3 @@
-// import '@/global.css';
-
 import { NAV_THEME } from '@/lib/theme';
 import { ThemeProvider } from '@react-navigation/native';
 import { useColorScheme } from 'nativewind';
