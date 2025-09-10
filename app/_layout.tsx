@@ -1,25 +1,15 @@
 import '@/global.css';
 
-import { NAV_THEME } from '@/lib/theme';
-import { ThemeProvider } from '@react-navigation/native';
-import { PortalHost } from '@rn-primitives/portal';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import { useColorScheme } from 'nativewind';
+import { ProveedorDeTemaClaroOscuro } from '@/src/proveedores';
+import { StackPrincipal } from '@/src/stacks';
 
-export {
-  // Catch any errors thrown by the Layout component.
-  ErrorBoundary,
-} from 'expo-router';
+export { FeedbackFrenteAErrores as ErrorBoundary } from '@/src/feedbacks';
 
-export default function RootLayout() {
-  const { colorScheme } = useColorScheme();
+export default function LayoutPrincipal() {
 
   return (
-    <ThemeProvider value={NAV_THEME[colorScheme ?? 'light']}>
-      <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
-      <Stack />
-      <PortalHost />
-    </ThemeProvider>
+    <ProveedorDeTemaClaroOscuro>
+      <StackPrincipal />
+    </ProveedorDeTemaClaroOscuro>
   );
 }
