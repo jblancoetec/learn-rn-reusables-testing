@@ -5,7 +5,6 @@ import {
   EnlaceParaDirigirseAlDiaPosterior,
   formatear_fecha,
 } from '../nav_entre_dias';
-import { Stack } from 'expo-router';
 
 const NavEntreDias = ({
   hoy,
@@ -20,7 +19,6 @@ const NavEntreDias = ({
 }) => {
   return (
     <>
-      <Stack.Screen options={{ headerShown: false }} />
       <View className="flex w-full flex-row items-center justify-between px-4">
         <EnlaceParaDirigirseAlDiaAnterior fecha={ayer} />
         <View>
