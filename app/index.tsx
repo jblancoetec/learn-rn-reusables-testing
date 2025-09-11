@@ -1,30 +1,22 @@
 import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
+import { useTema } from '@/hooks';
 import { TituloParaElNombreDeLaCiudad } from '@/src/clima/ciudad';
 import NavEntreDias from '@/src/clima/nav_entre_dias';
+import { useFechas } from '@/src/clima/nav_entre_dias/hooks';
 import { SimboloParaCadaTipoDeClima } from '@/src/clima/simbolo';
 import { Link } from 'expo-router';
 import { StarIcon } from 'lucide-react-native';
-import { useColorScheme } from 'nativewind';
-import { Image, type ImageStyle, View } from 'react-native';
-
-const LOGO = {
-  light: require('@/assets/images/react-native-reusables-light.png'),
-  dark: require('@/assets/images/react-native-reusables-dark.png'),
-};
-
-const IMAGE_STYLE: ImageStyle = {
-  height: 76,
-  width: 76,
-};
+import { View } from 'react-native';
 
 export default function Screen() {
-  const { colorScheme } = useColorScheme();
+  const { modo } = useTema();
+  const { fechas } = useFechas();
 
   return (
     <>
-      <NavEntreDias />
+      <NavEntreDias {...fechas()} variante={modo()} />
       <View className="flex-1 items-center justify-center gap-8 p-4">
         <TituloParaElNombreDeLaCiudad ciudad="Tokio" />
         <SimboloParaCadaTipoDeClima clima="lluvioso" />
