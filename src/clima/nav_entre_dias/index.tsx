@@ -41,7 +41,7 @@ export const NavEntreDias = ({
   return <Stack.Screen options={opciones_por_variante[variante]} />;
 };
 
-const EnlaceParaDirigirseAlDiaAnterior = ({ fecha }: { fecha: Date }) => {
+export const EnlaceParaDirigirseAlDiaAnterior = ({ fecha }: { fecha: Date }) => {
   const fecha_formateada = formatear_fecha(fecha);
   return (
     <View className="flex-row items-center">
@@ -54,7 +54,7 @@ const EnlaceParaDirigirseAlDiaAnterior = ({ fecha }: { fecha: Date }) => {
   );
 };
 
-const EnlaceParaDirigirseAlDiaPosterior = ({ fecha }: { fecha: Date }) => {
+export const EnlaceParaDirigirseAlDiaPosterior = ({ fecha }: { fecha: Date }) => {
   const fecha_formateada = formatear_fecha(fecha);
   return (
     <View className="flex-row items-center">
@@ -67,7 +67,7 @@ const EnlaceParaDirigirseAlDiaPosterior = ({ fecha }: { fecha: Date }) => {
   );
 };
 
-const formatear_fecha = (fecha: Date) => {
+export const formatear_fecha = (fecha: Date) => {
   const formatoFecha: Parameters<typeof fecha.toLocaleDateString>[1] = {
     year: 'numeric',
     month: '2-digit',

@@ -3,7 +3,7 @@
 import { renderRouter, screen } from 'expo-router/testing-library';
 
 import { NavEntreDias } from '@/src/clima/nav_entre_dias';
-import { ProveedorDeTemaClaroOscuro } from '@/src/proveedores';
+import { ProveedorDeTemaClaroOscuro } from '@/src/proveedores/proveedor_de_tema_claro_oscuro';
 import { Stack } from 'expo-router';
 
 describe('Yo como usuario, deseo ver la fecha para saber de que dia tratan los datos clima', () => {

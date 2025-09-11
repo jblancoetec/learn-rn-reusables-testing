@@ -3,8 +3,10 @@ import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
 import { useTema } from '@/hooks';
 import { TituloParaElNombreDeLaCiudad } from '@/src/clima/ciudad';
-import NavEntreDias from '@/src/clima/nav_entre_dias';
+// import NavEntreDias from '@/src/clima/nav_entre_dias';
+
 import { useFechas } from '@/src/clima/nav_entre_dias/hooks';
+import NavEntreDias from '@/src/clima/nav_entre_dias_v2';
 import { SimboloParaCadaTipoDeClima } from '@/src/clima/simbolo';
 import { Link } from 'expo-router';
 import { StarIcon } from 'lucide-react-native';
@@ -16,7 +18,8 @@ export default function Screen() {
 
   return (
     <>
-      <NavEntreDias {...fechas()} variante={modo()} />
+      {/* <NavEntreDias {...fechas()} variante={modo()} /> */}
+      <NavEntreDias {...fechas()} variante="light" />
       <View className="flex-1 items-center justify-center gap-8 p-4">
         <TituloParaElNombreDeLaCiudad ciudad="Tokio" />
         <SimboloParaCadaTipoDeClima clima="lluvioso" />
