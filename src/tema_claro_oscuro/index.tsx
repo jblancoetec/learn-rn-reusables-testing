@@ -1,10 +1,10 @@
 import { NAV_THEME } from '@/lib/theme';
 import { ThemeProvider } from '@react-navigation/native';
+import { StatusBar } from 'expo-status-bar';
 import { useColorScheme } from 'nativewind';
 import { PropsWithChildren } from 'react';
-import { StatusBar } from 'expo-status-bar';
 
-export function ProveedorDeTemaClaroOscuro({ children }: PropsWithChildren) {
+export default function ProveedorDeTemaClaroOscuro({ children }: PropsWithChildren) {
   const { colorScheme } = useColorScheme();
 
   return (

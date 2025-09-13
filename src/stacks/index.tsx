@@ -1,9 +1,7 @@
-import { PortalHost } from '@rn-primitives/portal';
 import { Stack } from 'expo-router';
 
-export const StackPrincipal = () => (
-  <>
-    <Stack screenOptions={{ headerShown: false }} />
-    <PortalHost />
-  </>
-);
+const StackPrincipal = () => {
+  return <Stack screenOptions={{ headerShown: false }} />;
+};
+
+export default StackPrincipal;

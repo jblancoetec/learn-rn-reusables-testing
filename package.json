@@ -11,7 +11,8 @@
     "tests": "jest"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "transformIgnorePatterns": []
   },
   "dependencies": {
     "@react-navigation/native": "^7.0.0",
