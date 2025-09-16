@@ -39,3 +39,8 @@ yarn-error.*
 
 expo-env.d.ts
 # @end expo-cli
+
+# Jest
+coverage/
+.jest/
+__snapshots__/
