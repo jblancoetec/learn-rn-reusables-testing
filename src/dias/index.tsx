@@ -3,7 +3,15 @@ import { Text } from '@/components/ui/text';
 import { ChevronLeft, ChevronRight } from 'lucide-react-native';
 import { View } from 'react-native';
 
-const NavEntreDias = ({ hoy, maniana, ayer }: { hoy: Date; maniana: Date; ayer: Date }) => {
+const NavParaDesplazarseEntreDias = ({
+  hoy,
+  maniana,
+  ayer,
+}: {
+  hoy: Date;
+  maniana: Date;
+  ayer: Date;
+}) => {
   return (
     <View className="flex-row justify-between p-4">
       <View className="flex-row items-center space-x-2">
@@ -30,4 +38,4 @@ const formatear_fecha = (fecha: Date) => {
   return fecha_con_formato.replace(`/${fecha.getFullYear()}`, '');
 };
 
-export default NavEntreDias;
+export default NavParaDesplazarseEntreDias;
