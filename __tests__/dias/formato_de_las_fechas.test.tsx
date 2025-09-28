@@ -1,5 +1,4 @@
 import { render } from '@testing-library/react-native';
-// import { renderRouter, screen } from 'expo-router/testing-library';
 
 import NavEntreDias from '@/src/dias';
 
