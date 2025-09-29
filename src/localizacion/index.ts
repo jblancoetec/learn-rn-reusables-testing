@@ -11,18 +11,15 @@ export const useLocalizacion = () => {
 
   useEffect(() => {
     (async () => {
-      await requestPermission();
-      const { coords } = await getCurrentPositionAsync();
-      setPosicion((posicion) =>
-        status?.granted === true
-          ? {
-              latitud: coords.latitude,
-              longitud: coords.longitude,
-            }
-          : posicion
+      const permisos = await requestPermission();
+      const posicion_actual = await getCurrentPositionAsync({});
+      setPosicion((posicion_previa) =>
+        permisos.granted
+          ? { latitud: posicion_actual.coords.latitude, longitud: posicion_actual.coords.longitude }
+          : { ...posicion_previa }
       );
     })();
-  }, [status]);
+  }, [status, posicion]);
 
   return {
     fueHabilitado: () => status?.granted === true,
