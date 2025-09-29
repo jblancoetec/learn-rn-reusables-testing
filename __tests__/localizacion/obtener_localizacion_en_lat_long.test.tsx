@@ -5,21 +5,25 @@ import { renderHook, waitFor } from '@testing-library/react-native';
 
 jest.mock('expo-location', () => {
   const permisos = { granted: false };
+
+  const requestPermission = async () => {
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    permisos.granted = true;
+    return permisos;
+  };
+
+  const useForegroundPermissions = jest.fn(() => [permisos, requestPermission]);
+
+  const getCurrentPositionAsync = jest.fn(async () => ({
+    coords: {
+      latitude: 10,
+      longitude: 20,
+    },
+  }));
+
   return {
-    useForegroundPermissions: jest.fn(() => [
-      permisos,
-      async () => {
-        await new Promise((resolve) => setTimeout(resolve, 100));
-        permisos.granted = true;
-        return permisos;
-      },
-    ]),
-    getCurrentPositionAsync: jest.fn(async () => ({
-      coords: {
-        latitude: 10,
-        longitude: 20,
-      },
-    })),
+    useForegroundPermissions,
+    getCurrentPositionAsync,
   };
 });
 
