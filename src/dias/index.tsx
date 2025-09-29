@@ -16,20 +16,20 @@ const NavParaDesplazarseEntreDias = ({
     <View className="flex-row justify-between p-4">
       <View className="flex-row items-center space-x-2">
         <Icon as={ChevronLeft} />
-        <Text>{formatear_fecha(ayer)}</Text>
+        <Text>{formatearFecha(ayer)}</Text>
       </View>
       <View>
-        <Text className="text-2xl font-bold">{formatear_fecha(hoy)}</Text>
+        <Text className="text-2xl font-bold">{formatearFecha(hoy)}</Text>
       </View>
       <View className="flex-row items-center space-x-2">
-        <Text>{formatear_fecha(maniana)}</Text>
+        <Text>{formatearFecha(maniana)}</Text>
         <Icon as={ChevronRight} />
       </View>
     </View>
   );
 };
 
-const formatear_fecha = (fecha: Date) => {
+const formatearFecha = (fecha: Date) => {
   const fecha_con_formato = fecha.toLocaleDateString('es-AR', {
     year: 'numeric',
     day: '2-digit',
