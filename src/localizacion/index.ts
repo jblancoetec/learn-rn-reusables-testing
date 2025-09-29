@@ -2,7 +2,7 @@ import { useForegroundPermissions, getCurrentPositionAsync } from 'expo-location
 import { useEffect, useState } from 'react';
 import { Float } from 'react-native/Libraries/Types/CodegenTypes';
 
-export const useLocalizacion = () => {
+export const usarLocalizacion = () => {
   const [status, requestPermission] = useForegroundPermissions();
   const [posicion, setPosicion] = useState<{ latitud: Float; longitud: Float }>({
     latitud: 0,

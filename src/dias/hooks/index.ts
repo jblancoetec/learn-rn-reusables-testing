@@ -1,4 +1,4 @@
-export const useFechas = () => {
+export const usarFechas = () => {
   const hoy = new Date();
   const ayer = new Date(hoy);
   ayer.setDate(hoy.getDate() - 1);
