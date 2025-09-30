@@ -21,6 +21,7 @@ export const usarPronosticoDelClima = ({
     ciudad: () => (consulta.isFetched ? consulta.data?.ciudad : ''),
     pronostico: () => (consulta.isFetched ? consulta.data : undefined),
     seEstaDescargando: () => consulta.isLoading,
+    seDescargoConExito: () => consulta.isSuccess,
     seDescargoConError: () => consulta.isError,
     error: () => (consulta.isError ? consulta.error : null),
   };
