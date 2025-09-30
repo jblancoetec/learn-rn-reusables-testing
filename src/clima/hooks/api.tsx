@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { api_key_weather } from '../claves';
+// import { api_key_weather } from '../claves';
 
 export interface DatosClimaticos {
   ciudad: string;
@@ -13,11 +13,19 @@ export interface DatosClimaticos {
   temperatura: number;
 }
 
-export const usarApiWeather = ({ latitud, longitud }: { latitud: number; longitud: number }) => {
+export const usarApiWeather = ({
+  latitud,
+  longitud,
+  api_key,
+}: {
+  latitud: number;
+  longitud: number;
+  api_key: string;
+}) => {
   const solicitarPronosticoActual = async (): Promise<DatosClimaticos> => {
     try {
       const respuesta = await axios.get(
-        `http://api.weatherapi.com/v1/current.json?key=${api_key_weather}&q=${latitud},${longitud}`
+        `http://api.weatherapi.com/v1/current.json?key=${api_key}&q=${latitud},${longitud}`
       );
 
       return {
@@ -38,6 +46,6 @@ export const usarApiWeather = ({ latitud, longitud }: { latitud: number; longitu
   };
 
   return {
-    pronosticoActual: solicitarPronosticoActual,
+    solicitarPronosticoActual,
   };
 };

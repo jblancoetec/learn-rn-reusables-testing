@@ -6,24 +6,27 @@ import { renderHook, waitFor } from '@testing-library/react-native';
 jest.mock('expo-location', () => {
   const permisos = { granted: false };
 
-  const requestPermission = async () => {
+  const solicitarPermisosFalsos = async () => {
     await new Promise((resolve) => setTimeout(resolve, 100));
     permisos.granted = true;
     return permisos;
   };
 
-  const useForegroundPermissions = jest.fn(() => [permisos, requestPermission]);
+  const usarPermisosEnPrimerPlanoFalsos = jest.fn(() => [permisos, solicitarPermisosFalsos]);
 
-  const getCurrentPositionAsync = jest.fn(async () => ({
-    coords: {
-      latitude: 10,
-      longitude: 20,
-    },
-  }));
+  const obtenerPosicionFalsa = jest.fn(async () => {
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    return {
+      coords: {
+        latitude: 10,
+        longitude: 20,
+      },
+    };
+  });
 
   return {
-    useForegroundPermissions,
-    getCurrentPositionAsync,
+    useForegroundPermissions: usarPermisosEnPrimerPlanoFalsos,
+    getCurrentPositionAsync: obtenerPosicionFalsa,
   };
 });
 
@@ -37,6 +40,7 @@ describe('Como usuario, quiero que en la pantalla aparezca los datos del clima d
     await waitFor(() => {
       const { current } = result;
       expect(current.fueHabilitado()).toBeTruthy();
+      expect(current.posicion()).toEqual({ latitud: 10, longitud: 20 });
     });
   });
 });
