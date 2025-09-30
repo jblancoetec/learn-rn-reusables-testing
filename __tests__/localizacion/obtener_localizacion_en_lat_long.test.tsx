@@ -31,6 +31,14 @@ jest.mock('expo-location', () => {
 });
 
 describe('Como usuario, quiero que en la pantalla aparezca los datos del clima donde me encuentro', () => {
+  beforeAll(() => {
+    jest.useFakeTimers();
+  });
+
+  afterAll(() => {
+    jest.useRealTimers();
+  });
+
   test('Es posible obtener latitud y longitud distinta a cero sin errores', async () => {
     const { result } = renderHook(() => usarLocalizacion());
     const { current } = result;

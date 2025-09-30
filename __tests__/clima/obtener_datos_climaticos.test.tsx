@@ -2,11 +2,10 @@ import { usarApiWeather } from '@/src/clima/hooks/api';
 import { usarPronosticoDelClima } from '@/src/clima/hooks/pronostico';
 import { ProveedorDeDatosClimaticos } from '@/src/clima/proveedores';
 import { renderHook, waitFor } from '@testing-library/react-native';
-// import { api_key_weather } from '@/src/clima/claves';
 
 jest.mock('axios', () => {
   const brindarReporteDeClimaFalse = jest.fn(async () => {
-    await new Promise((resolve) => setTimeout(resolve, 100)); // Simula un retardo de 100ms
+    await new Promise((resolve) => setTimeout(resolve, 100));
     return {
       data: {
         location: {
@@ -34,6 +33,10 @@ jest.mock('axios', () => {
 describe('Como usuario, quiero que en la pantalla aparezca los datos del clima donde me encuentro', () => {
   let pronostico: ReturnType<typeof renderHook<ReturnType<typeof usarPronosticoDelClima>, {}>>;
 
+  beforeAll(() => {
+    jest.useFakeTimers();
+  });
+
   beforeEach(async () => {
     pronostico = renderHook(
       () => {
@@ -54,6 +57,10 @@ describe('Como usuario, quiero que en la pantalla aparezca los datos del clima d
         wrapper: ProveedorDeDatosClimaticos,
       }
     );
+  });
+
+  afterAll(() => {
+    jest.useRealTimers();
   });
 
   test('Es Posible obtener el nombre de la ciudad donde me encuentro', async () => {
