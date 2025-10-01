@@ -17,7 +17,7 @@ export const usarPronosticoClimatico = ({
       const resultado = await fetch(
         `http://api.weatherapi.com/v1/current.json?key=${clave_de_api}&q=${latitud},${longitud}`
       );
-      const data = resultado.json();
+      const data = await resultado.json();
       return data;
     },
   });
