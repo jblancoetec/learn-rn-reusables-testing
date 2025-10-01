@@ -56,6 +56,8 @@ global.fetch = jest.fn(() =>
 ) as jest.Mock;
 
 describe('Yo como usuario, quiero ver el nombre de la ciudad para asegurarme que los datos climaticos estan ligados a mi zona', () => {
+  beforeAll(() => jest.useFakeTimers());
+  afterAll(() => jest.useRealTimers());
   test('El primer dato a visualizar en la aplicación debe ser el nombre de la ciudad: Quilmes', async () => {
     const resultado = renderHook(
       () =>
