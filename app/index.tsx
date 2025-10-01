@@ -7,7 +7,7 @@ import { View, Text } from 'react-native';
 
 const PantallaInicialParaElClima = () => {
   const { fechas } = usarFechas();
-  const { coordenadas, coordenadasComoTexto, coordenadasDisponibles } = usarLocalizacion();
+  const { coordenadas, coordenadasDisponibles } = usarLocalizacion();
 
   return (
     <LayoutParaLaPantallaPrincipalDelClima>
