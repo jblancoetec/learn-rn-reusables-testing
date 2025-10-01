@@ -12,7 +12,7 @@ export const usarLocalizacion = () => {
 
   useEffect(() => {
     async function obtenerLocalizacionActual() {
-      let { status: habilitado } = await requestForegroundPermissionsAsync();
+      const { status: habilitado } = await requestForegroundPermissionsAsync();
       if (habilitado !== 'granted') {
         return;
       }
@@ -22,6 +22,7 @@ export const usarLocalizacion = () => {
         latitud: localizacion.coords.latitude,
         longitud: localizacion.coords.longitude,
       });
+
       cambiarEstadoDeLosPermisos({ habilitado: true });
     }
 

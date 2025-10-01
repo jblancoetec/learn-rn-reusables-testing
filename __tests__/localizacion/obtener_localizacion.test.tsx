@@ -19,7 +19,7 @@ jest.mock('expo-location', () => {
 });
 
 describe('Yo como usuario quiero visualizar los datos del clima de la fecha para saber vestirme ', () => {
-  test('El primer dato a visualizar en la aplicación debe ser el nombre de la ciudad: Quilmes', async () => {
+  test('Es posible obtener las coordendas geograficas de mi localizacion', async () => {
     const resultado = renderHook(() => usarLocalizacion());
 
     expect(resultado.result.current.coordenadas()).toEqual({
